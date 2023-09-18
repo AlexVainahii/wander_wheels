@@ -1,13 +1,8 @@
 import React from 'react';
 import Modal from '../Modal';
-import AddTaskForm from 'components/AddTaskForm/AddTaskForm';
 
 const ModalCars = ({ onClose, task, category }) => {
-  return (
-    <Modal onClose={onClose}>
-      <AddTaskForm onClose={onClose} task={task} category={category} />
-    </Modal>
-  );
+  return <Modal onClose={onClose}></Modal>;
 };
 
-export default AddTaskModal;
+export default ModalCars;
