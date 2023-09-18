@@ -6,7 +6,6 @@ export const fetchCars = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/advert");
-      console.log("response :>> ", response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
