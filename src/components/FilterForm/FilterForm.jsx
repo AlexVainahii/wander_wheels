@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { changeFilter } from "../../redux/filter/filterSlice";
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from '../../redux/filter/filterSlice';
+import {
+  ContainerFilter,
+  Input,
+  Label,
+  Select,
+  WrapperMake,
+} from './FilterForm.styled';
 const initialFilters = {
-  make: "",
-  rentalPrice: "",
-  minMileAge: "",
-  maxMileAge: "",
+  make: '',
+  rentalPrice: '',
+  minMileAge: '',
+  maxMileAge: '',
 };
 const initialFocus = {
   make: false,
@@ -23,7 +30,7 @@ const FilterForm = ({ cars }) => {
     const uniqueCarsWithCount = (arr, field) => {
       const counts = {};
 
-      arr.forEach((car) => {
+      arr.forEach(car => {
         const value = car[field];
 
         if (!counts[value]) {
@@ -33,17 +40,17 @@ const FilterForm = ({ cars }) => {
         let matchesFilter = true;
 
         for (const key in filters) {
-          if (key !== "make" && filters[key] !== "") {
-            if (key === "rentalPrice") {
-              if (Number(car[key].replace("$", "")) > filters[key]) {
+          if (key !== 'make' && filters[key] !== '') {
+            if (key === 'rentalPrice') {
+              if (Number(car[key].replace('$', '')) > filters[key]) {
                 matchesFilter = false;
               }
-            } else if (key === "minMileAge") {
-              if (Number(car["mileage"]) < filters[key]) {
+            } else if (key === 'minMileAge') {
+              if (Number(car['mileage']) < filters[key]) {
                 matchesFilter = false;
               }
-            } else if (key === "maxMileAge") {
-              if (Number(car["mileage"]) > filters[key]) {
+            } else if (key === 'maxMileAge') {
+              if (Number(car['mileage']) > filters[key]) {
                 matchesFilter = false;
               }
             } else if (filters[key] !== car[key]) {
@@ -64,46 +71,46 @@ const FilterForm = ({ cars }) => {
 
       return result.sort((a, b) => a[field].localeCompare(b[field]));
     };
-    const uniqueCarsData = uniqueCarsWithCount(cars, "make");
-    const minMaxPriceData = findMinMaxByField(cars, "rentalPrice");
-    const minMaxMileAgeData = findMinMaxByField(cars, "mileage");
+    const uniqueCarsData = uniqueCarsWithCount(cars, 'make');
+    const minMaxPriceData = findMinMaxByField(cars, 'rentalPrice');
+    const minMaxMileAgeData = findMinMaxByField(cars, 'mileage');
     setUniqueCars(uniqueCarsData);
     setMinMaxPrice(minMaxPriceData);
     setMinMaxMileAge(minMaxMileAgeData);
   }, [cars, filters]);
 
-  const handleSelectChange = (event) => {
+  const handleSelectChange = event => {
     let { id, value } = event.target;
 
-    if (id === "make") {
-      setIsFocused((prevFocused) => ({
+    if (id === 'make') {
+      setIsFocused(prevFocused => ({
         ...prevFocused,
-        [id]: value !== "",
+        [id]: value !== '',
       }));
-    } else if (id === "rentalPrice") {
-      setIsFocused((prevFocused) => ({
+    } else if (id === 'rentalPrice') {
+      setIsFocused(prevFocused => ({
         ...prevFocused,
-        [id]: value !== "",
+        [id]: value !== '',
       }));
-    } else if (id === "minMileAge" || id === "maxMileAge") {
+    } else if (id === 'minMileAge' || id === 'maxMileAge') {
       const numbers = value.match(/\d+/g);
 
       if (numbers) {
-        value = numbers.join("");
+        value = numbers.join('');
       } else {
-        value = "";
+        value = '';
       }
     }
 
-    setFilters((prevFilters) => ({
+    setFilters(prevFilters => ({
       ...prevFilters,
       [id]: value,
     }));
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
 
-    if (filters.minMileAge === "" && filters.maxMileAge !== "") {
+    if (filters.minMileAge === '' && filters.maxMileAge !== '') {
       if (
         filters.maxMileAge >= minMaxMileAge.min &&
         filters.maxMileAge <= minMaxMileAge.max
@@ -114,7 +121,7 @@ const FilterForm = ({ cars }) => {
           `Invalid mileage range. Please check your input from ${minMaxMileAge.min} to ${minMaxMileAge.max}`
         );
       }
-    } else if (filters.minMileAge !== "" && filters.maxMileAge === "") {
+    } else if (filters.minMileAge !== '' && filters.maxMileAge === '') {
       if (
         filters.minMileAge >= minMaxMileAge.min &&
         filters.minMileAge <= minMaxMileAge.max
@@ -126,8 +133,8 @@ const FilterForm = ({ cars }) => {
         );
       }
     } else if (
-      filters.minMileAge !== "" &&
-      filters.maxMileAge !== "" &&
+      filters.minMileAge !== '' &&
+      filters.maxMileAge !== '' &&
       filters.minMileAge >= minMaxMileAge.min &&
       filters.minMileAge <= minMaxMileAge.max &&
       filters.minMileAge <= filters.maxMileAge &&
@@ -136,14 +143,14 @@ const FilterForm = ({ cars }) => {
       filters.minMileAge <= filters.maxMileAge
     ) {
       dispatch(changeFilter(filters));
-    } else if (filters.minMileAge === "" && filters.maxMileAge === "") {
+    } else if (filters.minMileAge === '' && filters.maxMileAge === '') {
       dispatch(changeFilter(filters));
     } else {
       alert(
         `Invalid mileage range. Please check your input from ${minMaxMileAge.min} to ${minMaxMileAge.max}`
       );
     }
-    console.log("filters2 :>> ", filters);
+    console.log('filters2 :>> ', filters);
   };
   const resetSubmit = () => {
     setFilters({ ...initialFilters });
@@ -157,8 +164,8 @@ const FilterForm = ({ cars }) => {
 
     return arr.reduce((result, item) => {
       let value = 0;
-      if (field === "rentalPrice") {
-        value = Number(item[field].replace("$", ""));
+      if (field === 'rentalPrice') {
+        value = Number(item[field].replace('$', ''));
       } else value = item[field];
       if (value < result.min || result.min === undefined) {
         result.min = value;
@@ -171,7 +178,7 @@ const FilterForm = ({ cars }) => {
       return result;
     }, {});
   };
-  const formatMileAge = (num) => {
+  const formatMileAge = num => {
     const numString = num.toString();
     if (numString.length <= 3) {
       return numString;
@@ -181,22 +188,22 @@ const FilterForm = ({ cars }) => {
     for (let i = numString.length - 1, j = 1; i >= 0; i--, j++) {
       parts.unshift(numString[i]);
       if (j % 3 === 0 && i !== 0) {
-        parts.unshift(",");
+        parts.unshift(',');
       }
     }
 
-    return parts.join("");
+    return parts.join('');
   };
   return (
-    <div>
-      <form style={{ display: "flex" }}>
-        <div>
-          <label htmlFor="make">Car brand</label>
-          <select id="make" value={filters.make} onChange={handleSelectChange}>
+    <ContainerFilter>
+      <form style={{ display: 'flex' }}>
+        <WrapperMake>
+          <Label htmlFor="make">Car brand</Label>
+          <Select id="make" value={filters.make} onChange={handleSelectChange}>
             <option value="">
-              {isFocused.make ? "All Cars" : "Enter the text"}
+              {isFocused.make ? 'All Cars' : 'Enter the text'}
             </option>
-            {uniqueCars.map((car) => (
+            {uniqueCars.map(car => (
               <option
                 key={car.make}
                 value={car.make}
@@ -205,8 +212,8 @@ const FilterForm = ({ cars }) => {
                 {car.count === 0 ? car.make : `${car.make} (${car.count})`}
               </option>
             ))}
-          </select>
-        </div>
+          </Select>
+        </WrapperMake>
         <div>
           <label htmlFor="rentalPrice">Price/ 1 hour </label>
           <select
@@ -215,8 +222,8 @@ const FilterForm = ({ cars }) => {
             onChange={handleSelectChange}
           >
             <option value="">
-              {" "}
-              {isFocused.rentalPrice ? "All Price" : "Enter the text"}
+              {' '}
+              {isFocused.rentalPrice ? 'All Price' : 'Enter the text'}
             </option>
             {Array.from(
               { length: (minMaxPrice.max - minMaxPrice.min) / 10 + 1 },
@@ -237,17 +244,17 @@ const FilterForm = ({ cars }) => {
             onChange={handleSelectChange}
           ></input>
           <label htmlFor="maxMileAge">To </label>
-          <input
+          <Input
             id="maxMileAge"
             value={formatMileAge(filters.maxMileAge)}
             onChange={handleSelectChange}
-          ></input>
+          ></Input>
         </div>
 
         <button type="onSubmit" onClick={handleSubmit} />
       </form>
-      <button style={{ width: "20px", height: "20px" }} onClick={resetSubmit} />
-    </div>
+      <button style={{ width: '20px', height: '20px' }} onClick={resetSubmit} />
+    </ContainerFilter>
   );
 };
 export default FilterForm;

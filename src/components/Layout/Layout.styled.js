@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   position: relative;
 
@@ -23,6 +23,18 @@ const Container = styled.div`
       flex-direction: column;
     }
   }
+`;
+export const ContainerMain = styled.div`
+  width: 1440px;
+  height: auto;
+  padding: 0 128px;
+  margin: 0 auto;
+`;
+export const ContainerCard = styled.div`
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: scroll;
 `;
 
 export const Navigation = styled.nav`
@@ -60,5 +72,3 @@ export const NavigationLink = styled(NavLink)`
     color: orange;
   }
 `;
-
-export { Container };
