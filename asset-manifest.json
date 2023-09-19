@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wander_wheels/static/css/main.0ec7b079.css",
+    "main.js": "/wander_wheels/static/js/main.cdc26bd1.js",
+    "index.html": "/wander_wheels/index.html",
+    "main.0ec7b079.css.map": "/wander_wheels/static/css/main.0ec7b079.css.map",
+    "main.cdc26bd1.js.map": "/wander_wheels/static/js/main.cdc26bd1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ec7b079.css",
+    "static/js/main.cdc26bd1.js"
+  ]
+}
