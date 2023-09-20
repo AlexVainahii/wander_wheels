@@ -7,7 +7,8 @@ import { selectCars, selectFilter } from 'redux/selectors';
 import FilterForm from 'components/FilterForm/FilterForm';
 
 const Cars = () => {
-  const [handleCloseModal, handleOpenModal, isModalOpen] = useOutletContext();
+  const [handleCloseModal, handleOpenModal, isModalOpen, dataCar] =
+    useOutletContext();
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
   const filterObject = useSelector(selectFilter);
@@ -28,8 +29,6 @@ const Cars = () => {
           if (Number(car['mileage']) > filterObject[key]) {
             return false;
           }
-        } else if (filterObject[key] !== '' && filterObject[key] !== car[key]) {
-          return false;
         }
       }
       return true;
@@ -43,12 +42,15 @@ const Cars = () => {
   return (
     <>
       <FilterForm cars={cars} />
-      <CarsList
-        filteredCars={filteredCars}
-        handleCloseModal={handleCloseModal}
-        handleOpenModal={handleOpenModal}
-        isModalOpen={isModalOpen}
-      />
+      {filteredCars.length > 0 && (
+        <CarsList
+          filteredCars={filteredCars}
+          handleCloseModal={handleCloseModal}
+          handleOpenModal={handleOpenModal}
+          isModalOpen={isModalOpen}
+          dataCar={dataCar}
+        />
+      )}
     </>
   );
 };

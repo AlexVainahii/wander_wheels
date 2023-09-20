@@ -28,7 +28,7 @@ export const ButtonMore = styled.button`
   height: 44px;
   background-color: #3470ff;
   color: #fff;
-  padding: 12px 99pz;
+  padding: 12px 99px;
   border: none;
   border-radius: 12px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -47,6 +47,7 @@ export const Img = styled.img`
   width: 274px;
   height: 268px;
   border-radius: 14px;
+  background-size: cover;
   display: block;
 `;
 export const WrapperText = styled.div`
@@ -80,11 +81,13 @@ export const SpanLabel = styled.span`
   font-weight: 400;
   line-height: 18px;
   text-wrap: nowrap;
-  padding: 0 6px;
-  padding-left: ${props => (props.type === 'first' ? '0' : '6px')};
-  padding-right: ${props => (props.type === 'last' ? '0' : '6px')};
-  border-right: ${props =>
-    props.type === 'last' ? 'none' : '1px solid rgba(18, 20, 23, 0.10)'};
+  padding-right: 6px;
+  margin-right: 6px;
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
+
+  &.end-of-row {
+    border-right: 1px solid #fff;
+  }
 `;
 export const WrapperLabel = styled.div`
   margin-top: 8px;
@@ -97,6 +100,11 @@ export const Stroke = styled.div`
   width: 274px;
   height: 18px;
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
 
   align-items: center;
+  .end-of-row {
+    flex-grow: 2;
+  }
 `;

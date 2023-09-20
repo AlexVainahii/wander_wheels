@@ -1,113 +1,55 @@
-# React homework template
+Title: README for "Whander Wheels" Car Rental Website
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+Project Description "Whander Wheels" is a car rental website that allows users
+to easily find and rent cars for their travels and other needs. This README
+provides a brief overview of the project and instructions for installing and
+running the "Whander Wheels" website.
 
-## Создание репозитория по шаблону
+Prerequisites Before you begin, ensure you have the following components
+installed on your computer:
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+Node.js - JavaScript runtime environment. npm or Yarn - Package manager for
+Node.js. Installation and Setup Clone the GitHub repository to your computer:
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+bash Copy code git clone https://github.com/yourusername/whander-wheels.git
+Navigate to the project directory:
 
-На следующем шаге откроется страница создания нового репозитория. Заполни поле
-его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
+bash Copy code cd whander-wheels Install project dependencies using npm or Yarn:
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+For npm:
 
-После того как репозиторий будет создан, необходимо перейти в настройки
-созданного репозитория на вкладку `Settings` > `Actions` > `General` как
-показано на изображении.
+bash Copy code npm install Or for Yarn:
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+bash Copy code yarn install Configure environment variables if necessary. This
+may include database connection parameters, server settings, etc. Typically,
+these variables are placed in a .env file.
 
-Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
-опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
-необходимо для автоматизации процесса деплоя проекта.
+Start the local server:
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+For npm:
 
-Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
-репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
-клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
-GitHub.
+bash Copy code npm start Or for Yarn:
 
-## Подготовка к работе
+bash Copy code yarn start Open your web browser and go to http://localhost:3000
+to see the "Whander Wheels" website in action.
 
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Установи базовые зависимости проекта командой `npm install`.
-3. Запусти режим разработки, выполнив команду `npm start`.
-4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
+Making Changes and Development If you want to make changes to the project or
+extend its functionality, you can do so using the following steps:
 
-## Деплой
+Create a new branch for your work:
 
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
+bash Copy code git checkout -b feature/new-feature Make the necessary changes
+and stage them for commit:
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+bash Copy code git add . git commit -m "Added a new feature" Push your branch to
+GitHub:
 
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
+bash Copy code git push origin feature/new-feature Create a Pull Request (PR) in
+the GitHub web interface. Your changes will be reviewed and merged into the
+project's main branch if everything is in order.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+License This project is distributed under the MIT License, which means you are
+free to use, modify, and distribute it according to the terms of this license.
 
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+Thank you for choosing "Whander Wheels"! We wish you pleasant travels and a
+rewarding experience in web development.

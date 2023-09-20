@@ -13,6 +13,7 @@ export const ModalOverlay = styled.div`
   backdrop-filter: blur(2px);
   align-items: center;
   z-index: 10;
+  padding-top: 78px;
 `;
 
 export const ModalContent = styled.div`
@@ -20,48 +21,30 @@ export const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: var(--sidebar-background-color);
-  border-radius: 8px;
+  background-color: #fff;
+  border-radius: 24px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   padding: 28px 20px;
   position: relative;
   z-index: 1100;
   overflow: hidden;
 
-  @media screen and (max-width: 374px) {
-    max-width: 335px;
-    min-height: 290px;
-  }
-
-  @media screen and (min-width: 375px) and (max-width: 767px) {
-    min-width: 335px;
-    min-height: 290px;
-  }
-
-  @media screen and (min-width: 767px) {
-    padding: 32px;
-    min-width: 468px;
-    min-height: 300px;
-  }
+  padding: 40px;
+  width: 541px;
+  height: 752px;
 `;
 
 export const CloseBtn = styled(CgClose)`
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 16px;
+  right: 16px;
   width: 24px;
   height: 24px;
 
-  color: var(--modal-close-icon);
+  color: rgba(18, 20, 23, 1)
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 
-  :hover {
-    color: var(--accent);
-  }
 
-  @media (min-width: 767px) {
-    top: 18px;
-    right: 18px;
-  }
+
 `;

@@ -5,6 +5,7 @@ import {
   Navigation,
   NavigationLink,
 } from './Layout.styled';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -12,7 +13,9 @@ import { useEffect, useState } from 'react';
 const defaultTheme = createTheme();
 const Layout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleOpenModal = () => {
+  const [dataCar, setDataCar] = useState(null);
+  const handleOpenModal = newCar => {
+    setDataCar(newCar);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
@@ -51,8 +54,6 @@ const Layout = () => {
           sm={15}
           md={15}
           sx={{
-            backgroundColor: '#fff',
-
             height: '100vh',
             '@media (max-width: 480px)': {
               backgroundAttachment: 'fixed',
@@ -76,7 +77,12 @@ const Layout = () => {
           </Container>
           <ContainerMain>
             <Outlet
-              context={[handleCloseModal, handleOpenModal, isModalOpen]}
+              context={[
+                handleCloseModal,
+                handleOpenModal,
+                isModalOpen,
+                dataCar,
+              ]}
             />
           </ContainerMain>
         </Grid>

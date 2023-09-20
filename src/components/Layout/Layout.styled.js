@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import AuthImage from '../../images/123.webp';
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
@@ -30,6 +30,30 @@ export const ContainerMain = styled.div`
   padding: 0 128px;
   margin: 0 auto;
 `;
+export const ContainerHome = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(${AuthImage});
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  background-position: center;
+  h1 {
+    margin-top: 200px;
+    margin-left: 350px;
+    color: black;
+    font-size: 64px;
+  }
+  h2 {
+    margin-left: 650px;
+    color: black;
+    font-size: 25px;
+  }
+`;
+
 export const ContainerCard = styled.div`
   width: 100%;
   height: auto;
