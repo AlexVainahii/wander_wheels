@@ -1,13 +1,16 @@
 {
   "files": {
     "main.css": "/wander_wheels/static/css/main.0ec7b079.css",
-    "main.js": "/wander_wheels/static/js/main.cdc26bd1.js",
+    "main.js": "/wander_wheels/static/js/main.24a8645f.js",
+    "static/media/123.webp": "/wander_wheels/static/media/123.6e430d5ed3b547a6b8a9.webp",
+    "static/media/231.jpg": "/wander_wheels/static/media/231.d017fda12db898de3b0a.jpg",
     "index.html": "/wander_wheels/index.html",
+    "static/media/chevron-down.svg": "/wander_wheels/static/media/chevron-down.2bdbc8fe782b7d29779dd3f35abaa28e.svg",
     "main.0ec7b079.css.map": "/wander_wheels/static/css/main.0ec7b079.css.map",
-    "main.cdc26bd1.js.map": "/wander_wheels/static/js/main.cdc26bd1.js.map"
+    "main.24a8645f.js.map": "/wander_wheels/static/js/main.24a8645f.js.map"
   },
   "entrypoints": [
     "static/css/main.0ec7b079.css",
-    "static/js/main.cdc26bd1.js"
+    "static/js/main.24a8645f.js"
   ]
 }
