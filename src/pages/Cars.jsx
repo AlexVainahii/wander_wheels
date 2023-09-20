@@ -3,7 +3,7 @@ import CarsList from '../components/CarsList/CarList';
 import { useEffect, useState } from 'react';
 import { fetchCars } from '../redux/cars/operations';
 import { useOutletContext } from 'react-router-dom';
-import { selectCars, selectFilter } from 'redux/selectors';
+import { selectCars, selectFilter, selectIsLoading } from 'redux/selectors';
 import FilterForm from 'components/FilterForm/FilterForm';
 
 const Cars = () => {
@@ -11,6 +11,7 @@ const Cars = () => {
     useOutletContext();
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
+  const isLoading = useSelector(selectIsLoading);
   const filterObject = useSelector(selectFilter);
   const [filteredCars, setFilteredCars] = useState(cars);
 
@@ -42,6 +43,7 @@ const Cars = () => {
   return (
     <>
       <FilterForm cars={cars} />
+      {isLoading && 'Loading...'}
       {filteredCars.length > 0 && (
         <CarsList
           filteredCars={filteredCars}
