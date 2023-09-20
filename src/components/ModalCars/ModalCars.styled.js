@@ -12,7 +12,7 @@ export const Img = styled.img`
 `;
 export const WrapperText = styled.div`
   width: 461px;
-  height: 126px;
+  height: 100%;
   padding-top: 14px;
 `;
 export const WrapperTitle = styled.div`
@@ -80,7 +80,7 @@ export const WrapperDescript = styled.div`
 export const WrapperAcces = styled.div`
   margin-top: 24px;
   width: 461px;
-  height: 68px;
+  height: 100px;
 `;
 export const WrapperRent = styled.div`
   margin-top: 24px;
